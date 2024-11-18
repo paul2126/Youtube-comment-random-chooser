@@ -219,3 +219,5 @@ cython_debug/
 *.exe
 data/
 .vscode/
+*.html
+*_files/
