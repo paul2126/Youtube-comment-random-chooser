@@ -221,3 +221,4 @@ data/
 .vscode/
 *.html
 *_files/
+output/
