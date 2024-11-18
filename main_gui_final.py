@@ -10,9 +10,32 @@ import random
 
 class CommentAnalyzer:
     def __init__(self, settings_file="settings.json"):
-        self.__get_settings()
+        if not os.path.exists("settings.json"):
+            self._create_settings()
+        self._get_settings()
 
-    def __get_settings(self):
+    def _create_settings(self):
+        """
+        Create settings.json file
+        """
+        settings = {
+            "html_name": "comments.html",
+            "email_types": [
+                "\uc9c0\uba54\uc77c",
+                "\ub124\uc774\ubc84",
+                "\ud56b\uba54\uc77c",
+                "\uc544\uc6c3\ub8e9",
+                "\ud55c\uba54\uc77c",
+                "\ub2e4\uc74c",
+            ],
+            "pick_number": 3,
+            "show_process": True,
+            "grace_period": 1,
+        }
+        with open("settings.json", "w", encoding="utf-8") as file:
+            json.dump(settings, file, indent=4)
+
+    def _get_settings(self):
         """
         Load settings from settings.json file
         html_name: 댓글들이 달린 HTML 파일 저장 이름
@@ -252,7 +275,7 @@ class CommentAnalyzer:
             return
         with open("settings.json", "w", encoding="utf-8") as file:
             json.dump(self.settings, file, indent=4)
-        self.__get_settings()  # Update settings
+        self._get_settings()  # Update settings
         messagebox.showinfo("설정", "정상적으로 저장되었습니다.")
 
 
