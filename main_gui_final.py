@@ -583,7 +583,6 @@ class CommentAnalyzerApp:
         """
         new_window = tk.Toplevel(self.root)
         new_window.title(title)
-        new_window.iconbitmap("youtube.ico")
         new_window.geometry("800x300")
         # comments 길이와 상관없이 입력받을 수 있도록 함 " ".join(map(str, comment))
         text = "\n".join([" ".join(map(str, comment)) for comment in comments])
@@ -616,5 +615,4 @@ class CommentAnalyzerApp:
 if __name__ == "__main__":
     root = tk.Tk()
     app = CommentAnalyzerApp(root)
-    root.iconbitmap("youtube.ico")
     root.mainloop()
