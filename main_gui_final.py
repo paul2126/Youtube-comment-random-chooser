@@ -615,4 +615,5 @@ class CommentAnalyzerApp:
 if __name__ == "__main__":
     root = tk.Tk()
     app = CommentAnalyzerApp(root)
+    root.iconbitmap("youtube.ico")
     root.mainloop()
